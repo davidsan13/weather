@@ -34,7 +34,7 @@ function unitBtn() {
   const fBtn = document.createElement('button')
 
   cBtn.classList.add('celsius')
-  fBtn.classList.add('fahrenheit')
+  fBtn.classList.add('fahBtn')
 
   cBtn.textContent = '°C'
   fBtn.textContent = '°F'
@@ -46,13 +46,13 @@ function unitBtn() {
 }
 
 function todayContainer(city) {
-  const container = document.createElement('div')
-  const headerCity = document.createElement('h1')
-  const temp = document.createElement('h2')
-  const weather = document.createElement('h2') // weather.main
-  const weatherIcon = document.createElement('img')
+  const container = document.querySelector('.weatherContainer')
+  const headerCity = document.querySelector('.cityName')
+  const temp = document.querySelector('.temp')
+  const weather = document.querySelector('.weather') // weather.main
+  const weatherIcon = document.querySelector('.weatherIcon')
   // const btnUnit = document.createElement('button')
-
+  console.log(container)
   const iconCode = city.weather[0].icon
   const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
 
@@ -60,12 +60,6 @@ function todayContainer(city) {
   temp.textContent = city.main.temp
   weather.textContent = city.weather[0].main
   weatherIcon.setAttribute('src', iconURL)
-  container.appendChild(unitBtn())
-  container.appendChild(headerCity)
-  container.appendChild(temp)
-  container.appendChild(weather)
-  container.appendChild(weatherIcon)
-  document.body.appendChild(container)
 
 }
 

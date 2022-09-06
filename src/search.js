@@ -1,6 +1,4 @@
 
-
-
 export default function Search() {
   const form = document.createElement('form')
   const input = document.createElement('input')
