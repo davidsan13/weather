@@ -1,21 +1,4 @@
-import Search from './search'
-
-function unitBtn() {
-  const container = document.createElement('div')
-  const cBtn = document.createElement('button')
-  const fBtn = document.createElement('button')
-
-  cBtn.classList.add('celsius')
-  fBtn.classList.add('fahBtn')
-
-  cBtn.textContent = '°C'
-  fBtn.textContent = '°F'
-
-  container.appendChild(cBtn)
-  container.appendChild(fBtn)
-
-  return container
-}
+import Navi from './navi';
 
 function windContainer() {
   const container = document.createElement('div')
@@ -31,6 +14,21 @@ function windContainer() {
   container.appendChild(windSpeed)
   container.appendChild(windDeg)
   container.appendChild(windGust)
+
+  return container
+}
+
+function rainContainer() {
+  const container = document.createElement('div')
+  const rain1h = document.createElement('h1')
+  const rain3h = document.createElement('h1')
+
+  container.classList.add('rainContainer')
+  rain1h.classList.add('rain1h')
+  rain3h.classList.add('rain3h')
+
+  container.appendChild(rain1h)
+  container.appendChild(rain3h)
 
   return container
 }
@@ -56,7 +54,7 @@ function todayContainer() {
   // temp.textContent = city.main.temp
   // weather.textContent = city.weather[0].main
   // weatherIcon.setAttribute('src', iconURL)
-  container.appendChild(unitBtn())
+  
   container.appendChild(headerCity)
   container.appendChild(temp)
   container.appendChild(weather)
@@ -69,7 +67,11 @@ export default function Main() {
   const main = document.createElement('div')
 
   main.classList.add('main')
-  main.appendChild(Search())
+
+  main.appendChild(Navi())
   main.appendChild(todayContainer())
+  main.appendChild(windContainer())
+  main.appendChild(rainContainer())
+  
   return main
 }

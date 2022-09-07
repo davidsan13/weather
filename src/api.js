@@ -25,7 +25,11 @@ function weatherRequest(city) {
   fetch(weatherRequestURL)
     .then((response) => response.json())
     .then((response) => {
-      todayContainer(response)})
+      console.log(response)
+      todayContainer(response)
+      windData(response)
+      rainData(response)
+    })
 }
 
 function unitBtn() {
@@ -60,7 +64,24 @@ function todayContainer(city) {
   temp.textContent = city.main.temp
   weather.textContent = city.weather[0].main
   weatherIcon.setAttribute('src', iconURL)
+}
 
+function windData(city) {
+  const windSpeed = document.querySelector('.windSpeed')
+  const windDeg = document.querySelector('.windDeg')
+  const windGust = document.querySelector('.windGust')
+
+  windSpeed.textContent = city.wind.speed
+  windDeg.textContent = city.wind.deg
+  windGust.textContent = city.wind.gust
+}
+
+function rainData(city) {
+  const rain1h = document.querySelector('.rain1h')
+  const rain3h = document.querySelector('rain3h')
+  console.log(city.rain)
+  rain1h.textContent = city.rain['1h'] + 'mm'
+  rain3h.textContent = city.rain['3h']
 }
 
 

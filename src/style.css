@@ -70,4 +70,16 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+.main .navi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.main .navi #searchIn {
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */
