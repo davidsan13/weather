@@ -58,6 +58,22 @@ html {
   font-family: sans-serif;
 }
 
+:root {
+  --color-primary: #1A808D;
+  --color-secondary:#7DBAC2;
+  --color-white: #ffffff;
+  --color-black: rgb(41, 41, 41);
+  --color-grey-0: #D9D9D9;
+  --color-grey-1: #a3a8a4;
+  --color-grey-2: #b2becd;
+  --color-grey-3: #d8dee6;
+  --color-grey-4: #454e56;
+  --color-grey-5: #2a2e35;
+  --color-grey-6: #12181b;
+  --br-sm-2: 14px;
+  --box-shadow-1: 0 3px 15px rgba(63, 62, 62, 0.849);
+}
+
 .main {
   font-size: 2rem;
   height: 100vh;
@@ -72,14 +88,49 @@ html {
 }
 
 .main .navi {
+  height: 10%;
+  background-color: var(--color-primary);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
-.main .navi #searchIn {
+.main .navi .logoCon {
   text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--color-grey-0);
+  height: 7rem;
+  width: 8rem;
+}
+
+.main .navi #searchIn {
+  background-color: var(--color-white);
+  text-align: center;
+  border-radius: 8px;
+}
+
+.main .navi #searchIn:focus {
+  outline: none;
+}
+
+.main .navi .btnCon {
+  height: 3rem;
+  width: 15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .navi .btnCon button {
+  background-color: var(--color-grey-0);
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 /*# sourceMappingURL=style.css.map */

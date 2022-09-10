@@ -14,7 +14,7 @@ export default function Search() {
   input.htmlFor = 'search'
   submit.setAttribute('type', 'submit')
   submit.setAttribute('id', 'searchBtn')
-  submit.textContent = 'Search'
+  submit.textContent = ''
 
   form.appendChild(label)
   form.appendChild(input)
