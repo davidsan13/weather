@@ -144,10 +144,15 @@ html {
 }
 
 .root .navi .btnCon button {
+  opacity: .7;
   background-color: var(--color-grey-0);
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.root .navi .btnCon button.active {
+  opacity: 1;
 }
 
 .root .main {

@@ -55,14 +55,16 @@ function todayContainer() {
   // temp.textContent = city.main.temp
   // weather.textContent = city.weather[0].main
   // weatherIcon.setAttribute('src', iconURL)
-  
+
   container.appendChild(headerCity)
   container.appendChild(temp)
   container.appendChild(weather)
   container.appendChild(weatherIcon)
-  
+
   return container
 }
+
+
 
 export default function Main() {
   const root = document.createElement('div')
@@ -78,6 +80,7 @@ export default function Main() {
   main.appendChild(rainContainer())
   root.appendChild(main)
   root.appendChild(Footer())
+  
   
   return root
 }

@@ -119,9 +119,13 @@ html {
       width: 15rem;
       display: flex;
       button {
+        opacity: .7;
         background-color: var(--color-grey-0);
         // width: 8rem;
         flex-grow: 1;
+        &.active {
+          opacity: 1;
+        }
       }
     }
   }

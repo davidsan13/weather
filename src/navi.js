@@ -5,9 +5,9 @@ function unitBtn() {
   const cBtn = document.createElement('button')
   const fBtn = document.createElement('button')
 
-  container.classList.add('btnCon');
-  cBtn.classList.add('celsius')
-  fBtn.classList.add('fahBtn')
+  container.classList.add('btnCon')
+  cBtn.classList.add('tempBtn', 'celsius', 'active')
+  fBtn.classList.add('tempBtn', 'fahBtn')
 
   cBtn.textContent = '°C'
   fBtn.textContent = '°F'
@@ -18,6 +18,8 @@ function unitBtn() {
   return container
 }
 
+
+
 export default function Navi() {
   const container = document.createElement('div')
   const logo = document.createElement('h1')
@@ -26,10 +28,10 @@ export default function Navi() {
   logoCon.classList.add('logoCon')
   logo.textContent = 'WEATHER'
   container.classList.add('navi')
-  
   logoCon.appendChild(logo)
   container.appendChild(logoCon)
   container.appendChild(Search())
   container.appendChild(unitBtn())
+  
   return container
 }
