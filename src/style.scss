@@ -72,18 +72,21 @@ html {
   --box-shadow-1: 0 3px 15px rgba(63, 62, 62, 0.849);
 }
 
-.main {
+.root {
   font-size: 2rem;
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   .navi {
-    height: 10%;
+    position: relative;
+    min-height: 8.7rem;
+    min-width: 60rem;
     background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-grow: .5; 
     .logoCon {
       text-align: center;
       font-size: 1.5rem;
@@ -92,14 +95,25 @@ html {
       height: 7rem;
       width: 8rem;
     }
-    #searchIn {
-      background-color: var(--color-white);
-      text-align: center;
+    .searchForm {
       border-radius: 8px;
-      &:focus {
-        outline: none;
+      background-color: var(--color-white);
+      button {
+        font-size: 1.8rem;
+        margin-right: .5rem;
+        background-color: var(--color-white);
+        
+      }
+      #searchIn {
+        background-color: var(--color-white);
+        text-align: center;
+        border-radius: 8px;
+        &:focus {
+          outline: none;
+        }
       }
     }
+    
     .btnCon {
       height: 3rem;
       width: 15rem;
@@ -111,7 +125,29 @@ html {
       }
     }
   }
-}
-.fahBtn {
-  // display: none;
+  .main {
+    flex-grow: 9;
+  }
+  .footerContainer {
+    flex-grow: .05;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    width: 100%;
+    .footerContent {
+      font-size: 1.8rem;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: .7rem;
+      .fa-github {
+        color: var(--color-white);
+        transition: transform 0.3s ease-in-out;
+        &:hover {
+          transform: rotate(360deg) scale(1.2);
+        }
+      }
+    }
+  }
 }

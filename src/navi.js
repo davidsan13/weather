@@ -25,8 +25,8 @@ export default function Navi() {
 
   logoCon.classList.add('logoCon')
   logo.textContent = 'WEATHER'
-
   container.classList.add('navi')
+  
   logoCon.appendChild(logo)
   container.appendChild(logoCon)
   container.appendChild(Search())

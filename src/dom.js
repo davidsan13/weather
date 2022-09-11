@@ -1,4 +1,5 @@
-import Navi from './navi';
+import Navi from './navi'
+import Footer from './footer'
 
 function windContainer() {
   const container = document.createElement('div')
@@ -64,14 +65,19 @@ function todayContainer() {
 }
 
 export default function Main() {
-  const main = document.createElement('div')
+  const root = document.createElement('div')
+  const main = document.createElement('main')
 
+  root.classList.add('root')
   main.classList.add('main')
+  
 
-  main.appendChild(Navi())
+  root.appendChild(Navi())
   main.appendChild(todayContainer())
   main.appendChild(windContainer())
   main.appendChild(rainContainer())
+  root.appendChild(main)
+  root.appendChild(Footer())
   
-  return main
+  return root
 }

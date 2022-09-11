@@ -74,7 +74,7 @@ html {
   --box-shadow-1: 0 3px 15px rgba(63, 62, 62, 0.849);
 }
 
-.main {
+.root {
   font-size: 2rem;
   height: 100vh;
   width: 100%;
@@ -87,8 +87,10 @@ html {
           flex-direction: column;
 }
 
-.main .navi {
-  height: 10%;
+.root .navi {
+  position: relative;
+  min-height: 8.7rem;
+  min-width: 60rem;
   background-color: var(--color-primary);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -98,9 +100,12 @@ html {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-flex: .5;
+      -ms-flex-positive: .5;
+          flex-grow: .5;
 }
 
-.main .navi .logoCon {
+.root .navi .logoCon {
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
@@ -109,17 +114,28 @@ html {
   width: 8rem;
 }
 
-.main .navi #searchIn {
+.root .navi .searchForm {
+  border-radius: 8px;
+  background-color: var(--color-white);
+}
+
+.root .navi .searchForm button {
+  font-size: 1.8rem;
+  margin-right: .5rem;
+  background-color: var(--color-white);
+}
+
+.root .navi .searchForm #searchIn {
   background-color: var(--color-white);
   text-align: center;
   border-radius: 8px;
 }
 
-.main .navi #searchIn:focus {
+.root .navi .searchForm #searchIn:focus {
   outline: none;
 }
 
-.main .navi .btnCon {
+.root .navi .btnCon {
   height: 3rem;
   width: 15rem;
   display: -webkit-box;
@@ -127,10 +143,54 @@ html {
   display: flex;
 }
 
-.main .navi .btnCon button {
+.root .navi .btnCon button {
   background-color: var(--color-grey-0);
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.root .main {
+  -webkit-box-flex: 9;
+      -ms-flex-positive: 9;
+          flex-grow: 9;
+}
+
+.root .footerContainer {
+  -webkit-box-flex: .05;
+      -ms-flex-positive: .05;
+          flex-grow: .05;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  width: 100%;
+}
+
+.root .footerContainer .footerContent {
+  font-size: 1.8rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  padding: .7rem;
+}
+
+.root .footerContainer .footerContent .fa-github {
+  color: var(--color-white);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.root .footerContainer .footerContent .fa-github:hover {
+  -webkit-transform: rotate(360deg) scale(1.2);
+          transform: rotate(360deg) scale(1.2);
 }
 /*# sourceMappingURL=style.css.map */
