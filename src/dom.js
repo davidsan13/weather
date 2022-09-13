@@ -35,36 +35,43 @@ function rainContainer() {
 }
 
 function todayContainer() {
-  const container = document.createElement('div')
+  const mainContainer = document.createElement('div')
+  const right = document.createElement('div')
+  const left = document.createElement('div')
+  const locationCon = document.createElement('div')
   const headerCity = document.createElement('h1')
   const temp = document.createElement('h2')
   const weather = document.createElement('h2') // weather.main
   const weatherIcon = document.createElement('img')
-  // const btnUnit = document.createElement('button')
-
-  // const iconCode = city.weather[0].icon
-  // const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
-
-  container.classList.add('weatherContainer')
+  const lat = document.createElement('h2')
+  const lon = document.createElement('h2')
+ // Card: weather icon, city name, lat and long
+  mainContainer.classList.add('main-sec-1')
+  left.classList.add('ms1-left')
+  right.classList.add('ms1-right')
+  locationCon.classList.add('locationCon')
   headerCity.classList.add('cityName')
   temp.classList.add('temp')
   weather.classList.add('weather')
   weatherIcon.classList.add('weatherIcon')
+  lat.classList.add('lat')
+  lon.classList.add('lon')
 
-  // headerCity.textContent = city.name
-  // temp.textContent = city.main.temp
-  // weather.textContent = city.weather[0].main
-  // weatherIcon.setAttribute('src', iconURL)
+  locationCon.appendChild(headerCity)
+  locationCon.appendChild(lat)
+  locationCon.appendChild(lon)
+  left.appendChild(weatherIcon)
+  left.appendChild(locationCon)
 
-  container.appendChild(headerCity)
-  container.appendChild(temp)
-  container.appendChild(weather)
-  container.appendChild(weatherIcon)
+  right.appendChild(temp)
+  right.appendChild(weather)
+  right.appendChild(windContainer())
+  right.appendChild(rainContainer())
+  mainContainer.appendChild(left)
+  mainContainer.appendChild(right)
 
-  return container
+  return mainContainer
 }
-
-
 
 export default function Main() {
   const root = document.createElement('div')
@@ -72,15 +79,11 @@ export default function Main() {
 
   root.classList.add('root')
   main.classList.add('main')
-  
 
-  root.appendChild(Navi())
   main.appendChild(todayContainer())
-  main.appendChild(windContainer())
-  main.appendChild(rainContainer())
+  root.appendChild(Navi())
   root.appendChild(main)
   root.appendChild(Footer())
-  
-  
+
   return root
 }

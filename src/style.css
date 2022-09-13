@@ -55,7 +55,7 @@ table {
 
 html {
   font-size: 62.5%;
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 :root {
@@ -85,6 +85,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: var(--color-grey-0);
 }
 
 .root .navi {
@@ -100,9 +101,9 @@ html {
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-flex: .5;
-      -ms-flex-positive: .5;
-          flex-grow: .5;
+  -webkit-box-flex: .1;
+      -ms-flex-positive: .1;
+          flex-grow: .1;
 }
 
 .root .navi .logoCon {
@@ -156,9 +157,44 @@ html {
 }
 
 .root .main {
+  background-color: var(--color-white);
   -webkit-box-flex: 9;
       -ms-flex-positive: 9;
           flex-grow: 9;
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 2rem 2rem;
+}
+
+.root .main .main-sec-1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.root .main .main-sec-1 .ms1-left {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: .3fr 1fr;
+      grid-template-columns: .3fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+}
+
+.root .main .main-sec-1 .ms1-left .weatherIcon {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/ 2;
+  height: 10rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.root .main .main-sec-1 .ms1-left .locationCon {
+  font-size: 1.7rem;
 }
 
 .root .footerContainer {
