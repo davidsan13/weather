@@ -157,6 +157,7 @@ html {
 }
 
 .root .main {
+  min-width: 57rem;
   background-color: var(--color-white);
   -webkit-box-flex: 9;
       -ms-flex-positive: 9;
@@ -171,6 +172,7 @@ html {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+  margin: 2rem;
 }
 
 .root .main .main-sec-1 .ms1-left {
@@ -194,6 +196,27 @@ html {
 }
 
 .root .main .main-sec-1 .ms1-left .locationCon {
+  font-size: 1.7rem;
+}
+
+.root .main .main-sec-1 .ms1-right {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  background-color: var(--color-grey-0);
+  padding: 1.5rem;
+}
+
+.root .main .main-sec-1 .ms1-right .temp {
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+.root .main .main-sec-1 .ms1-right .weather {
   font-size: 1.7rem;
 }
 

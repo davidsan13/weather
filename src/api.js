@@ -32,7 +32,7 @@ function weatherRequest(city) {
     .then((response) => {
       console.log(response)
       todayContainer(response)
-      // windData(response)
+      windData(response)
       // rainData(response)
     })
 }
@@ -70,8 +70,8 @@ function todayContainer(city) {
   temp.textContent = Math.trunc(city.main.temp) + '°'
   weather.textContent = city.weather[0].main
   weatherIcon.setAttribute('src', iconURL)
-  lat.textContent = 'Lat: ' + city.coord.lat
-  lon.textContent = 'Lon: ' + city.coord.lon
+  lat.textContent += city.coord.lat
+  lon.textContent += city.coord.lon
 }
 
 function windData(city) {

@@ -13,8 +13,8 @@ function windContainer() {
   windGust.classList.add('windGust')
 
   container.appendChild(windSpeed)
-  container.appendChild(windDeg)
-  container.appendChild(windGust)
+  // container.appendChild(windDeg)
+  // container.appendChild(windGust)
 
   return container
 }
@@ -39,34 +39,70 @@ function todayContainer() {
   const right = document.createElement('div')
   const left = document.createElement('div')
   const locationCon = document.createElement('div')
+  const tempCon = document.createElement('div')
+  const statsCon = document.createElement('div')
   const headerCity = document.createElement('h1')
   const temp = document.createElement('h2')
   const weather = document.createElement('h2') // weather.main
   const weatherIcon = document.createElement('img')
   const lat = document.createElement('h2')
   const lon = document.createElement('h2')
+  const highTemp = document.createElement('h2')
+  const lowTemp = document.createElement('h2')
+  const humidity = document.createElement('h2')
+  const pressure = document.createElement('h2')
+  const sunrise = document.createElement('h2')
+  const sunset = document.createElement('h2')
+  const visibility = document.createElement('h2')
  // Card: weather icon, city name, lat and long
   mainContainer.classList.add('main-sec-1')
   left.classList.add('ms1-left')
   right.classList.add('ms1-right')
   locationCon.classList.add('locationCon')
+  tempCon.classList.add('tempCon')
   headerCity.classList.add('cityName')
   temp.classList.add('temp')
   weather.classList.add('weather')
   weatherIcon.classList.add('weatherIcon')
   lat.classList.add('lat')
   lon.classList.add('lon')
+  highTemp.classList.add('highTemp')
+  lowTemp.classList.add('lowTemp')
+  humidity.classList.add('humidity')
+  pressure.classList.add('pressure')
+  sunrise.classList.add('sunrise')
+  sunset.classList.add('sunset')
+  visibility.classList.add('visibility')
 
+  lat.textContent = 'Lat: '
+  lon.textContent = 'Lon: '
+  pressure.textContent = 'Pressure: '
+  sunrise.textContent = 'Sunrise: '
+  sunset.textContent = 'Sunset: '
+  visibility.textContent = 'Visibility: '
+  humidity.textContent = 'Humidity: '
   locationCon.appendChild(headerCity)
   locationCon.appendChild(lat)
   locationCon.appendChild(lon)
   left.appendChild(weatherIcon)
   left.appendChild(locationCon)
 
-  right.appendChild(temp)
-  right.appendChild(weather)
-  right.appendChild(windContainer())
-  right.appendChild(rainContainer())
+  tempCon.appendChild(temp)
+  tempCon.appendChild(weather)
+  tempCon.appendChild(sunrise)
+  tempCon.appendChild(sunset)
+
+  statsCon.appendChild(highTemp)
+  statsCon.appendChild(lowTemp)
+  statsCon.appendChild(windContainer())
+  statsCon.appendChild(humidity)
+  statsCon.appendChild(pressure)
+  statsCon.appendChild(visibility)
+
+  right.appendChild(tempCon)
+  // right.appendChild(weather)
+  right.appendChild(statsCon)
+  // right.appendChild(rainContainer())
   mainContainer.appendChild(left)
   mainContainer.appendChild(right)
 
