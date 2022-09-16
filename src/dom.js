@@ -60,6 +60,7 @@ function todayContainer() {
   right.classList.add('ms1-right')
   locationCon.classList.add('locationCon')
   tempCon.classList.add('tempCon')
+  statsCon.classList.add('statsCon')
   headerCity.classList.add('cityName')
   temp.classList.add('temp')
   weather.classList.add('weather')

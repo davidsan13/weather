@@ -163,6 +163,9 @@ html {
         grid-template-columns: 1fr 1fr;
         background-color: var(--color-grey-0);
         padding: 1.5rem;
+        .statsCon > h2 {
+          border-bottom: 1px solid black;
+        }
         .temp {
           font-weight: bold;
           font-size: 5rem;

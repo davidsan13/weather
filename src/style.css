@@ -211,6 +211,10 @@ html {
   padding: 1.5rem;
 }
 
+.root .main .main-sec-1 .ms1-right .statsCon > h2 {
+  border-bottom: 1px solid black;
+}
+
 .root .main .main-sec-1 .ms1-right .temp {
   font-weight: bold;
   font-size: 5rem;
