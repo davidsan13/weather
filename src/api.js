@@ -32,7 +32,7 @@ function weatherRequest(city) {
     .then((response) => {
       console.log(response)
       todayContainer(response)
-      windData(response)
+      // windData(response)
       // rainData(response)
     })
 }
@@ -62,9 +62,27 @@ function todayContainer(city) {
   const weatherIcon = document.querySelector('.weatherIcon')
   const lat = document.querySelector('.lat')
   const lon = document.querySelector('.lon')
+  const sunrise = document.querySelector('.sunrise')
+  const sunset = document.querySelector('.sunset')
+  const highTemp = document.querySelector('.highTemp')
+  const lowTemp = document.querySelector('.lowTemp')
+  const humidity = document.querySelector('.humidity')
+  const pressure = document.querySelector('.pressure')
+  const visibility = document.querySelector('.visibility')
+
+
   // const btnUnit = document.createElement('button')
   const iconCode = city.weather[0].icon
   const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
+
+  const date = new Date(city.sys.sunrise * 1000)
+  const hours = date.getHours()
+  const minutes = date.getMinutes()
+  const seconds = date.getSeconds()
+
+  const time = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}:${padTo2Digits(
+    seconds,
+  )}`;
 
   headerCity.textContent = city.name
   temp.textContent = Math.trunc(city.main.temp) + '°'
@@ -72,6 +90,17 @@ function todayContainer(city) {
   weatherIcon.setAttribute('src', iconURL)
   lat.textContent += city.coord.lat
   lon.textContent += city.coord.lon
+  humidity.textContent += city.main.humidity + '%'
+  highTemp.textContent += city.main.temp_max + '°'
+  lowTemp.textContent += city.main.temp_min + '°'
+  pressure.textContent += city.main.pressure + 'hPa'
+  sunrise.textContent += time
+  sunset.textContent += city.sys.sunset
+  visibility.textContent += city.visibility 
+}
+
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
 }
 
 function windData(city) {
