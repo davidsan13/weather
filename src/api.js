@@ -38,10 +38,25 @@ function weatherRequest(city) {
 
 async function forecastRequest(city) {
   const key = '326cf3241277f33a6ab4623cf793e945'
-  const weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${key}`
+  const weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&&appid=${key}`
   const response = await fetch(weatherRequestURL)
   const data = await response.json()
+  const forecastList = data.list
+  forecastUnique(forecastList)
   
+}
+
+function forecastUnique(array) {
+  let current = array[0].dt_txt.slice(0, 10)
+  let unique = [array[0]]
+  
+  array.forEach((item) => {
+    if (item.dt_txt.slice(0, 10) !== current) {
+      unique.push(item)
+      current = item.dt_txt.slice(0, 10)
+    }
+  })
+  console.log(unique)
 }
 
 function unitBtn() {
