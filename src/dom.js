@@ -110,6 +110,31 @@ function todayContainer() {
   return mainContainer
 }
 
+function forecastContainer() {
+  const container = document.createElement('div')
+  container.classList.add('main-sec-2')
+  for (let i = 0; i < 6; i++) {
+    const forecastCard = document.createElement('div')
+    const day = document.createElement('h1')
+    const high = document.createElement('h1')
+    const low = document.createElement('h2')
+    const icon = document.createElement('img')
+
+    forecastCard.classList.add(`forecastCard-${i}`)
+    day.classList.add(`dayTitle${i}`)
+    high.classList.add(`high${i}`)
+    low.classList.add(`low${i}`)
+    icon.classList.add(`icon${i}`)
+
+    forecastCard.appendChild(day)
+    forecastCard.appendChild(high)
+    forecastCard.appendChild(low)
+    forecastCard.appendChild(icon)
+    container.appendChild(forecastCard)
+  }
+  return container
+}
+
 export default function Main() {
   const root = document.createElement('div')
   const main = document.createElement('main')
@@ -118,6 +143,7 @@ export default function Main() {
   main.classList.add('main')
 
   main.appendChild(todayContainer())
+  main.appendChild(forecastContainer())
   root.appendChild(Navi())
   root.appendChild(main)
   root.appendChild(Footer())

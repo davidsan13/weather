@@ -224,6 +224,22 @@ html {
   font-size: 1.7rem;
 }
 
+.root .main .main-sec-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.root .main .main-sec-2 [class^='forecastCard'] {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .root .footerContainer {
   -webkit-box-flex: .05;
       -ms-flex-positive: .05;

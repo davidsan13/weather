@@ -175,7 +175,15 @@ html {
         }
       }
     }
-
+    .main-sec-2 {
+      display: flex;
+      justify-items: center;
+      align-content: center;
+      [class^='forecastCard'] {
+        text-align: center;
+        flex-grow: 1;
+      }
+    }
   }
   .footerContainer {
     flex-grow: .05;
