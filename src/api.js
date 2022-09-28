@@ -42,30 +42,30 @@ async function forecastRequest(city) {
   const response = await fetch(weatherRequestURL)
   const data = await response.json()
   const forecastList = data.list
+  console.log(forecastList)
   const unique = forecastUnique(forecastList)
   console.log(unique)
   unique.forEach((item, index) => forecastContainer(item, index))
 }
 
 function forecastContainer(item, index) {
-  const forecastCard = document.querySelector(`.forecastCard${index}`)
+  const forecastCard = document.querySelector(`.forecastCard-${index}`)
   const date = document.querySelector(`.dayTitle${index}`)
-  const high = document.querySelector(`.high${index}`)
+  const high = document.querySelector(`.high-${index}`)
   const low = document.querySelector(`.low${index}`)
   const icon = document.querySelector(`.icon${index}`)
 
-  const weekday = ["Sun","Mon","Tues","Wed","Thur","Fri","Sat"];
+  const weekday = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
 
   const d = new Date(item.dt_txt)
-  const day = weekday[d.getDay()]
-  console.log(day)
+  const weeks = weekday[d.getDay()]
+  const day = d.getDate()
 
   const iconCode = item.weather[0].icon
-  console.log(iconCode)
   const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
 
-  date.textContent = `${day} ${item.dt_txt}`
-  high.textContent =  `${Math.trunc(item.main.temp_max)}°`
+  date.textContent = `${weeks} ${day}`
+  high.textContent = `${Math.trunc(item.main.temp_max)}°`
   low.textContent = `${Math.trunc(item.main.temp_min)}°`
   icon.setAttribute('src', iconURL)
 }

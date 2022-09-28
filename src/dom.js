@@ -112,7 +112,12 @@ function todayContainer() {
 
 function forecastContainer() {
   const container = document.createElement('div')
+  const header = document.createElement('h1')
+  const forecastContainer = document.createElement('div')
+  header.textContent = 'Daily Forecast'
   container.classList.add('main-sec-2')
+  forecastContainer.classList.add('forecastContainer')
+  container.appendChild(header)
   for (let i = 0; i < 6; i++) {
     const forecastCard = document.createElement('div')
     const day = document.createElement('h1')
@@ -122,7 +127,7 @@ function forecastContainer() {
 
     forecastCard.classList.add(`forecastCard-${i}`)
     day.classList.add(`dayTitle${i}`)
-    high.classList.add(`high${i}`)
+    high.classList.add(`high-${i}`)
     low.classList.add(`low${i}`)
     icon.classList.add(`icon${i}`)
 
@@ -130,8 +135,9 @@ function forecastContainer() {
     forecastCard.appendChild(high)
     forecastCard.appendChild(low)
     forecastCard.appendChild(icon)
-    container.appendChild(forecastCard)
+    forecastContainer.appendChild(forecastCard)
   }
+  container.appendChild(forecastContainer)
   return container
 }
 
