@@ -100,7 +100,7 @@ function unitBtn() {
 }
 
 function todayContainer(city) {
-  const container = document.querySelector('.weatherContainer')
+
   const headerCity = document.querySelector('.cityName')
   const temp = document.querySelector('.temp')
   const weather = document.querySelector('.weather') // weather.main
@@ -110,7 +110,7 @@ function todayContainer(city) {
   const sunrise = document.querySelector('.sunrise')
   const sunset = document.querySelector('.sunset')
   const highTemp = document.querySelector('.highTemp')
-  const lowTemp = document.querySelector('.lowTemp')
+
   const humidity = document.querySelector('.humidity')
   const pressure = document.querySelector('.pressure')
   const visibility = document.querySelector('.visibility')
@@ -125,8 +125,8 @@ function todayContainer(city) {
   lat.textContent += city.coord.lat
   lon.textContent += city.coord.lon
   humidity.textContent += `${city.main.humidity}%`
-  highTemp.textContent += `${city.main.temp_max}°`
-  lowTemp.textContent += `${city.main.temp_min}°`
+  highTemp.textContent += `${city.main.temp_max}°/${city.main.temp_min}°`
+
   pressure.textContent += `${city.main.pressure}hPa`
   sunrise.textContent += timeCon(city.sys.sunrise)
   sunset.textContent += timeCon(city.sys.sunset)

@@ -48,7 +48,7 @@ function todayContainer() {
   const lat = document.createElement('h2')
   const lon = document.createElement('h2')
   const highTemp = document.createElement('h2')
-  const lowTemp = document.createElement('h2')
+  
   const humidity = document.createElement('h2')
   const pressure = document.createElement('h2')
   const sunrise = document.createElement('h2')
@@ -68,7 +68,7 @@ function todayContainer() {
   lat.classList.add('lat')
   lon.classList.add('lon')
   highTemp.classList.add('highTemp')
-  lowTemp.classList.add('lowTemp')
+
   humidity.classList.add('humidity')
   pressure.classList.add('pressure')
   sunrise.classList.add('sunrise')
@@ -82,6 +82,7 @@ function todayContainer() {
   sunset.textContent = 'Sunset: '
   visibility.textContent = 'Visibility: '
   humidity.textContent = 'Humidity: '
+  highTemp.textContent = 'High/Low: '
   locationCon.appendChild(headerCity)
   locationCon.appendChild(lat)
   locationCon.appendChild(lon)
@@ -94,7 +95,7 @@ function todayContainer() {
   tempCon.appendChild(sunset)
 
   statsCon.appendChild(highTemp)
-  statsCon.appendChild(lowTemp)
+  
   statsCon.appendChild(windContainer())
   statsCon.appendChild(humidity)
   statsCon.appendChild(pressure)
