@@ -142,6 +142,17 @@ function forecastContainer() {
   return container
 }
 
+function heatMap() {
+  const container = document.createElement('div')
+  const mapContainer = document.createElement('div')
+
+  container.classList.add('main-sec-3')
+  mapContainer.classList.add('map-container')
+
+  container.appendChild(mapContainer)
+  return container
+}
+
 export default function Main() {
   const root = document.createElement('div')
   const main = document.createElement('main')
@@ -151,6 +162,7 @@ export default function Main() {
 
   main.appendChild(todayContainer())
   main.appendChild(forecastContainer())
+  main.appendChild(heatMap())
   root.appendChild(Navi())
   root.appendChild(main)
   root.appendChild(Footer())

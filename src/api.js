@@ -48,6 +48,14 @@ async function forecastRequest(city) {
   unique.forEach((item, index) => forecastContainer(item, index))
 }
 
+async function mapRequest(city) {
+  const key = '326cf3241277f33a6ab4623cf793e945'
+  const mapRequestURL = `https://tile.openweathermap.org/maps/2.0/we3ather/temp_new/4/2/3.png?appid=${key}`
+  const response = await fetch(mapRequestURL)
+  const data = await response
+  console.log(data)
+}
+
 function forecastContainer(item, index) {
   const forecastCard = document.querySelector(`.forecastCard-${index}`)
   const date = document.querySelector(`.dayTitle${index}`)
@@ -176,6 +184,7 @@ function init() {
   city.then((response) => {
     weatherRequest(response)
     forecastRequest(response)
+    mapRequest(response)
   })
 }
 

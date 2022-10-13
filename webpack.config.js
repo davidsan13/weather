@@ -1,5 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackInjectPlugin = require('html-webpack-inject-plugin').default
+
 
 module.exports = {
   mode: 'development',
@@ -12,7 +14,37 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Weather',
+      filename: 'index.html',
+      title: 'Testing',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'other.html',
+    }),
+    new HtmlWebpackInjectPlugin({
+      externals: [
+        {
+          tagName: 'script',
+          attributes: {
+            src: 'leaflet.js',
+            type: 'text/javascript',
+          },
+        },
+        {
+          tagName: 'link',
+          attributes: {
+            href: 'leaflet-openweathermap.css',
+            type: 'text/css',
+          },
+        },
+        {
+          tagName: 'script',
+          attributes: {
+            src: 'leaflet-openweathermap.js',
+            type: 'text/javascript',
+          },
+        },
+      ],
+      prepend: true, // default is false
     }),
   ],
   output: {
