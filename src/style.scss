@@ -158,6 +158,8 @@ html {
         }
       }
       .ms1-right {
+        max-width: 50rem;
+        min-width: 48rem;
         display: grid;
         align-items: center;
         grid-template-columns: 1fr 1fr;

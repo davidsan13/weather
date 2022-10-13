@@ -200,6 +200,8 @@ html {
 }
 
 .root .main .main-sec-1 .ms1-right {
+  max-width: 50rem;
+  min-width: 48rem;
   display: -ms-grid;
   display: grid;
   -webkit-box-align: center;
