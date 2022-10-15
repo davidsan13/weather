@@ -1,6 +1,7 @@
 import Navi from './navi'
 import Footer from './footer'
 
+
 function windContainer() {
   const container = document.createElement('div')
   const windSpeed = document.createElement('h1')
@@ -148,6 +149,7 @@ function heatMap() {
 
   container.classList.add('main-sec-3')
   mapContainer.classList.add('map-container')
+  
 
   container.appendChild(mapContainer)
   return container

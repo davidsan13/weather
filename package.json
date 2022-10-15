@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "leaflet": "^1.9.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "node-sass": "^7.0.3"
   }
 }

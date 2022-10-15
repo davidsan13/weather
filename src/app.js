@@ -7,7 +7,6 @@ import './style.css'
 import Search from './search'
 import  { init, query } from './api'
 import Main from './dom'
-import * as Leaflet from 'leaflet'
 function btnListener() {
   const btns = document.querySelectorAll('.tempBtn')
 

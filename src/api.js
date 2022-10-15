@@ -7,6 +7,8 @@
 //     console.log(response.json());
 //   });
 
+import * as Leaflet from 'leaflet'
+
 async function GeoCoding(city) {
   const key = '326cf3241277f33a6ab4623cf793e945'
   const geocodingRequestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${key}`
@@ -50,9 +52,17 @@ async function forecastRequest(city) {
 
 async function mapRequest(city) {
   const key = '326cf3241277f33a6ab4623cf793e945'
-  const mapRequestURL = `https://tile.openweathermap.org/maps/2.0/we3ather/temp_new/4/2/3.png?appid=${key}`
+  const mapRequestURL = `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}?appid=${key}`
   const response = await fetch(mapRequestURL)
   const data = await response
+  const mapContainer = document.querySelector('.map-container')
+  console.log(mapContainer)
+  var map = Leaflet.map(mapContainer, {
+    center: [51.505, -0.09],
+    zoom: 13
+  })
+  Leaflet.tileLayer(mapRequestURL, {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
   console.log(data)
 }
 
