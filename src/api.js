@@ -22,6 +22,7 @@ async function GeoCoding(city) {
 function weatherRequest(city) {
   const activeBtn = document.querySelector('.active').dataset.key
   const key = '326cf3241277f33a6ab4623cf793e945'
+  console.log(activeBtn)
   let weatherRequestURL = ''
   if (activeBtn === 'f') {
     weatherRequestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=imperial&appid=${key}`
@@ -44,27 +45,10 @@ async function forecastRequest(city) {
   const response = await fetch(weatherRequestURL)
   const data = await response.json()
   const forecastList = data.list
-  console.log(forecastList)
   const unique = forecastUnique(forecastList)
-  console.log(unique)
   unique.forEach((item, index) => forecastContainer(item, index))
 }
 
-async function mapRequest(city) {
-  const key = '326cf3241277f33a6ab4623cf793e945'
-  const mapRequestURL = `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}?appid=${key}`
-  const response = await fetch(mapRequestURL)
-  const data = await response
-  const mapContainer = document.querySelector('.map-container')
-  console.log(mapContainer)
-  var map = Leaflet.map(mapContainer, {
-    center: [51.505, -0.09],
-    zoom: 13
-  })
-  Leaflet.tileLayer(mapRequestURL, {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-
-  console.log(data)
-}
 
 function forecastContainer(item, index) {
   const forecastCard = document.querySelector(`.forecastCard-${index}`)
@@ -118,7 +102,6 @@ function unitBtn() {
 }
 
 function todayContainer(city) {
-
   const headerCity = document.querySelector('.cityName')
   const temp = document.querySelector('.temp')
   const weather = document.querySelector('.weather') // weather.main
@@ -194,7 +177,6 @@ function init() {
   city.then((response) => {
     weatherRequest(response)
     forecastRequest(response)
-    mapRequest(response)
   })
 }
 
@@ -213,4 +195,4 @@ function query() {
   })
 }
 
-export { init, query }
+export { init, query, weatherRequest, GeoCoding }

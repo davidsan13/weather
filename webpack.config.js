@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const HtmlWebpackInjectPlugin = require('html-webpack-inject-plugin').default
+const HtmlWebpackInjectPlugin = require('html-webpack-inject-plugin').default
 
 
 module.exports = {
@@ -16,32 +16,29 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Testing',
     }),
-    // new HtmlWebpackPlugin({
-    //   filename: 'other.html',
-    // }),
     // new HtmlWebpackInjectPlugin({
     //   externals: [
     //     {
-    //       tagName: 'script',
-    //       attributes: {
-    //         src: 'leaflet.js',
-    //         type: 'text/javascript',
-    //       },
-    //     },
-    //     {
     //       tagName: 'link',
     //       attributes: {
-    //         href: 'leaflet-openweathermap.css',
+    //         href: 'https://unpkg.com/leaflet@1.9.2/dist/leaflet.css',
     //         type: 'text/css',
     //       },
     //     },
     //     {
     //       tagName: 'script',
     //       attributes: {
-    //         src: 'leaflet-openweathermap.js',
+    //         src: 'https://unpkg.com/leaflet@1.9.2/dist/leaflet.js',
     //         type: 'text/javascript',
     //       },
     //     },
+        // {
+        //   tagName: 'script',
+        //   attributes: {
+        //     src: 'leaflet-openweathermap.js',
+        //     type: 'text/javascript',
+        //   },
+        // },
     //   ],
     //   prepend: true, // default is false
     // }),
