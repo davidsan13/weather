@@ -8,6 +8,7 @@
 //   });
 
 import * as Leaflet from 'leaflet'
+import forecastRequest from './api/forecastRequest'
 
 async function GeoCoding(city) {
   const key = '326cf3241277f33a6ab4623cf793e945'
@@ -22,7 +23,6 @@ async function GeoCoding(city) {
 function weatherRequest(city) {
   const activeBtn = document.querySelector('.active').dataset.key
   const key = '326cf3241277f33a6ab4623cf793e945'
-  console.log(activeBtn)
   let weatherRequestURL = ''
   if (activeBtn === 'f') {
     weatherRequestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=imperial&appid=${key}`
@@ -39,67 +39,6 @@ function weatherRequest(city) {
     })
 }
 
-async function forecastRequest(city) {
-  const key = '326cf3241277f33a6ab4623cf793e945'
-  const weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${key}`
-  const response = await fetch(weatherRequestURL)
-  const data = await response.json()
-  const forecastList = data.list
-  const unique = forecastUnique(forecastList)
-  unique.forEach((item, index) => forecastContainer(item, index))
-}
-
-
-function forecastContainer(item, index) {
-  const forecastCard = document.querySelector(`.forecastCard-${index}`)
-  const date = document.querySelector(`.dayTitle${index}`)
-  const high = document.querySelector(`.high-${index}`)
-  const low = document.querySelector(`.low${index}`)
-  const icon = document.querySelector(`.icon${index}`)
-
-  const weekday = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
-
-  const d = new Date(item.dt_txt)
-  const weeks = weekday[d.getDay()]
-  const day = d.getDate()
-
-  const iconCode = item.weather[0].icon
-  const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
-
-  date.textContent = `${weeks} ${day}`
-  high.textContent = `${Math.trunc(item.main.temp_max)}°`
-  low.textContent = `${Math.trunc(item.main.temp_min)}°`
-  icon.setAttribute('src', iconURL)
-}
-function forecastUnique(array) {
-  let current = array[0].dt_txt.slice(0, 10)
-  const unique = [array[0]]
-
-  array.forEach((item) => {
-    if (item.dt_txt.slice(0, 10) !== current) {
-      unique.push(item)
-      current = item.dt_txt.slice(0, 10)
-    }
-  })
-  return unique
-}
-
-function unitBtn() {
-  const container = document.createElement('div')
-  const cBtn = document.createElement('button')
-  const fBtn = document.createElement('button')
-
-  cBtn.classList.add('celsius')
-  fBtn.classList.add('fahBtn')
-
-  cBtn.textContent = '°C'
-  fBtn.textContent = '°F'
-
-  container.appendChild(cBtn)
-  container.appendChild(fBtn)
-
-  return container
-}
 
 function todayContainer(city) {
   const headerCity = document.querySelector('.cityName')
@@ -180,6 +119,30 @@ function init() {
   })
 }
 
+function updateTemp(city) {
+  let temp = document.querySelector('.temp')
+  let high = document.querySelector('.highTemp')
+  const activeBtn = document.querySelector('.active').dataset.key
+  const key = '326cf3241277f33a6ab4623cf793e945'
+  let weatherRequestURL = ''
+  if (activeBtn === 'f') {
+    weatherRequestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=imperial&appid=${key}`
+  } else {
+    weatherRequestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${key}`
+  }
+
+  fetch(weatherRequestURL)
+    .then((response) => response.json())
+    .then((response) => {
+      temp.textContent = `${Math.trunc(response.main.temp)}°`
+      high.textContent = `High/Low: ${response.main.temp_max}°/${response.main.temp_min}°`
+    })
+
+  // temp = ''
+
+  // 
+}
+
 function query() {
   const searchBtn = document.getElementById('searchBtn')
   searchBtn.addEventListener('click', (e) => {
@@ -195,4 +158,4 @@ function query() {
   })
 }
 
-export { init, query, weatherRequest, GeoCoding }
+export { init, query, weatherRequest, GeoCoding, updateTemp }

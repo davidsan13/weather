@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
 import './style.css'
 import Search from './search'
-import  { init, query, weatherRequest, GeoCoding } from './api'
+import  { init, query, GeoCoding, updateTemp } from './api'
 import Main from './dom'
 
 function btnListener() {
@@ -22,7 +22,7 @@ function btnListener() {
       btn.classList.add('active')
       const city = GeoCoding(cityName)
       city.then((response) => {
-        weatherRequest(response)
+        updateTemp(response)
       })
     })
   })

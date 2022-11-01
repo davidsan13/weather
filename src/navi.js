@@ -9,10 +9,10 @@ function unitBtn() {
   cBtn.classList.add('tempBtn', 'celsius')
   cBtn.classList.add('active')
   fBtn.classList.add('tempBtn', 'fahBtn')
-  
+
   cBtn.dataset.key = 'c'
   fBtn.dataset.key = 'f'
-  
+
   cBtn.textContent = '°C'
   fBtn.textContent = '°F'
 
