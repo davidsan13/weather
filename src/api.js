@@ -95,9 +95,7 @@ function windData(city) {
   const windDeg = document.querySelector('.windDeg')
   const windGust = document.querySelector('.windGust')
   const { wind } = city
-  for (const prop in wind) {
-    console.log(`obj.${prop} = ${wind[prop]}`)
-  }
+
   windSpeed.textContent = `Wind Speed: ${city.wind.speed}`
   windDeg.textContent = `Wind Degree: ${city.wind.deg}`
   windGust.textContent = `Wind Gust: ${city.wind.gust}`

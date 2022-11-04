@@ -123,19 +123,15 @@ function forecastContainer() {
   for (let i = 0; i < 6; i++) {
     const forecastCard = document.createElement('div')
     const day = document.createElement('h1')
-    const high = document.createElement('h1')
-    const low = document.createElement('h2')
+
     const icon = document.createElement('img')
 
     forecastCard.classList.add(`forecastCard-${i}`)
     day.classList.add(`dayTitle${i}`)
-    high.classList.add(`high-${i}`)
-    low.classList.add(`low${i}`)
+
     icon.classList.add(`icon${i}`)
 
     forecastCard.appendChild(day)
-    forecastCard.appendChild(high)
-    forecastCard.appendChild(low)
     forecastCard.appendChild(icon)
     forecastContainer.appendChild(forecastCard)
   }

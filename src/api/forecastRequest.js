@@ -12,22 +12,34 @@ export default async function forecastRequest(city) {
 function forecastContainer(item, index) {
   const forecastCard = document.querySelector(`.forecastCard-${index}`)
   const date = document.querySelector(`.dayTitle${index}`)
-  const high = document.querySelector(`.high-${index}`)
-  const low = document.querySelector(`.low${index}`)
+
   const icon = document.querySelector(`.icon${index}`)
 
   const weekday = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
-
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
   const d = new Date(item.dt_txt)
+ 
   const weeks = weekday[d.getDay()]
   const day = d.getDate()
+  const month = months[d.getMonth()]
 
   const iconCode = item.weather[0].icon
   const iconURL = `http://openweathermap.org/img/w/${iconCode}.png`
 
-  date.textContent = `${weeks} ${day}`
-  high.textContent = `${Math.trunc(item.main.temp_max)}°`
-  low.textContent = `${Math.trunc(item.main.temp_min)}°`
+  date.textContent = `${weeks} ${month} ${day}`
   icon.setAttribute('src', iconURL)
 }
 function forecastUnique(array) {
