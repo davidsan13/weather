@@ -135,10 +135,6 @@ function updateTemp(city) {
       temp.textContent = `${Math.trunc(response.main.temp)}°`
       high.textContent = `High/Low: ${response.main.temp_max}°/${response.main.temp_min}°`
     })
-
-  // temp = ''
-
-  // 
 }
 
 function query() {

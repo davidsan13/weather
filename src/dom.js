@@ -96,7 +96,6 @@ function todayContainer() {
   tempCon.appendChild(sunset)
 
   statsCon.appendChild(highTemp)
-  
   statsCon.appendChild(windContainer())
   statsCon.appendChild(humidity)
   statsCon.appendChild(pressure)
@@ -116,6 +115,7 @@ function forecastContainer() {
   const container = document.createElement('div')
   const header = document.createElement('h1')
   const forecastContainer = document.createElement('div')
+  
   header.textContent = 'Daily Forecast'
   container.classList.add('main-sec-2')
   forecastContainer.classList.add('forecastContainer')
@@ -123,15 +123,20 @@ function forecastContainer() {
   for (let i = 0; i < 6; i++) {
     const forecastCard = document.createElement('div')
     const day = document.createElement('h1')
-
+    const temp = document.createElement('h1')
+    const date = document.createElement('h2')
     const icon = document.createElement('img')
 
     forecastCard.classList.add(`forecastCard-${i}`)
-    day.classList.add(`dayTitle${i}`)
+    day.classList.add(`dayTitle-${i}`)
+    temp.classList.add(`temp-${i}`)
+    date.classList.add(`date-${i}`)
 
     icon.classList.add(`icon${i}`)
 
     forecastCard.appendChild(day)
+    forecastCard.appendChild(date)
+    forecastCard.appendChild(temp)
     forecastCard.appendChild(icon)
     forecastContainer.appendChild(forecastCard)
   }

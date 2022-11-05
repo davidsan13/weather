@@ -79,7 +79,7 @@ html {
 .root {
   font-size: 2rem;
   min-height: 100vh;
-  min-width: 60rem;;
+  min-width: 85rem;
   display: flex;
   flex-direction: column;
   // align-items: center;
@@ -137,39 +137,46 @@ html {
     }
   }
   .main {
-    min-width: 57rem;
-    // max-width: 150rem;
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-white);
+    justify-content: center;
+
+    // justify-items: center;
+    align-items: center;
+    // align-content: center;
     flex-grow: 9;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin: 2rem 2rem;
-    
+    // align-items: center;
     .main-sec-1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       margin: 2rem;
+      // width: 100rem;
       .ms1-left {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 3fr;
         align-items: center;
-        justify-items: center;
+        // justify-items: center;
         // font-weight: bold;
         .weatherIcon {
           grid-row: 1/ 2;
           height: 10rem;
           object-fit: cover;
-          justify-self: flex-end;
+          justify-self: flex-start;
         }
         .locationCon {
           font-size: 1.7rem;
+          
           .cityName {
             font-size: 3.5rem;
           }
         }
       }
       .ms1-right {
-        max-width: 50rem;
-        min-width: 48rem;
+        // max-width: 50rem;
+        // min-width: 25rem;
         display: grid;
         align-items: center;
         grid-template-columns: 1fr 1fr;
@@ -189,28 +196,43 @@ html {
     }
     .main-sec-2 {
       display: flex;
-      justify-items: center;
-      align-content: center;
+      min-width: 80rem;
+     
+      // flex-grow: 1;
+      // justify-items: center;
+      // justify-content: center;
+      // align-items: center;
+      // align-content: center;
       flex-direction: column;
       gap: 1.5rem;
+      padding: 2.5rem;
       > h1 {
         font-weight: bold;
-        padding-left: 2.5rem;
+        
       }
       .forecastContainer {
         display: flex;
-        
-        
+        flex-direction: column;
+       
+        // max-width: 150rem;
       }
       [class^='forecastCard'] {
         // text-align: center;
-        display: flex;
+        display: grid;
+        // min-width: 50rem;
+        grid-template-columns: .2fr 1fr 1fr .2fr;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        flex-grow: 1;
-        border-right: 1px solid black;
-
+        // flex-direction: column;
+        // flex-grow: 1;
+        border-bottom: 1px solid black;
+        [class^='temp'] {
+          justify-self: end;
+        }
+        img{
+          justify-self: end;
+        }
+     
       }
       .forecastCard-5 {
         border-right: none;
@@ -221,12 +243,6 @@ html {
       }
       [class^='low'] {
         font-size: 1.5rem;
-      }
-    }
-    .main-sec-3 {
-      .map-container{
-        display: block;
-        height: 200px;
       }
     }
   }
