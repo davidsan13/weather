@@ -1,13 +1,19 @@
 export default async function forecastRequest(city) {
   const key = '326cf3241277f33a6ab4623cf793e945'
-  const weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${key}`
+  const activeUnit = document.querySelector('.active').dataset.key
+  let weatherRequestURL
+  if (activeUnit === 'f') {
+    weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=imperial&appid=${key}`
+  } else {
+    weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${key}`
+  }
+  console.log(weatherRequestURL)
   const response = await fetch(weatherRequestURL)
   const data = await response.json()
   const forecastList = data.list
   const unique = forecastUnique(forecastList)
   unique.forEach((item, index) => forecastContainer(item, index))
 }
-
 
 function forecastContainer(item, index) {
   const forecastCard = document.querySelector(`.forecastCard-${index}`)
