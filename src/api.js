@@ -83,9 +83,7 @@ function timeCon(unix) {
   const minutes = date.getMinutes()
   const seconds = date.getSeconds()
 
-  const time = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}:${padTo2Digits(
-    seconds
-  )}`
+  const time = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`
 
   return time
 }
