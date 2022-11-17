@@ -96,7 +96,6 @@ function todayContainer() {
   tempCon.appendChild(sunset)
 
   statsCon.appendChild(highTemp)
-  statsCon.appendChild(windContainer())
   statsCon.appendChild(humidity)
   statsCon.appendChild(pressure)
   statsCon.appendChild(visibility)

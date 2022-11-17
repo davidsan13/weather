@@ -94,8 +94,9 @@ html {
     justify-content: space-around;
     flex-grow: 1;
     .logoCon {
-      text-align: center;
-      
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 1.5rem;
       font-weight: bold;
       background-color: var(--color-grey-0);
@@ -168,7 +169,9 @@ html {
         }
         .locationCon {
           font-size: 1.7rem;
-          
+          display: flex;
+          flex-direction: column;
+          gap: .2rem;
           .cityName {
             font-size: 3.5rem;
           }
@@ -184,6 +187,7 @@ html {
         padding: 1.5rem;
         .statsCon > h2 {
           border-bottom: 1px solid black;
+          padding: 2.5px 0px;
         }
         .temp {
           font-weight: bold;

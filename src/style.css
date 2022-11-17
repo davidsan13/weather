@@ -108,7 +108,15 @@ html {
 }
 
 .root .navi .logoCon {
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
   background-color: var(--color-grey-0);
@@ -210,6 +218,14 @@ html {
 
 .root .main .main-sec-1 .ms1-left .locationCon {
   font-size: 1.7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .2rem;
 }
 
 .root .main .main-sec-1 .ms1-left .locationCon .cityName {
@@ -230,6 +246,7 @@ html {
 
 .root .main .main-sec-1 .ms1-right .statsCon > h2 {
   border-bottom: 1px solid black;
+  padding: 2.5px 0px;
 }
 
 .root .main .main-sec-1 .ms1-right .temp {

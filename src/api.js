@@ -62,15 +62,15 @@ function todayContainer(city) {
   temp.textContent = `${Math.trunc(city.main.temp)}°`
   weather.textContent = city.weather[0].main
   weatherIcon.setAttribute('src', iconURL)
-  lat.textContent += city.coord.lat
-  lon.textContent += city.coord.lon
-  humidity.textContent += `${city.main.humidity}%`
-  highTemp.textContent += `${city.main.temp_max}°/${city.main.temp_min}°`
+  lat.textContent = `Lat: ${city.coord.lat.toFixed(2)} `
+  lon.textContent = `Lon: ${city.coord.lon.toFixed(2)}`
+  humidity.textContent = `Humidity: ${city.main.humidity}%`
+  highTemp.textContent = `High/Low: ${city.main.temp_max}°/${city.main.temp_min}°`
 
-  pressure.textContent += `${city.main.pressure}hPa`
-  sunrise.textContent += timeCon(city.sys.sunrise)
-  sunset.textContent += timeCon(city.sys.sunset)
-  visibility.textContent += city.visibility
+  pressure.textContent = `Pressure ${city.main.pressure}hPa`
+  sunrise.textContent = `Sunrise: ${timeCon(city.sys.sunrise)}AM`
+  sunset.textContent = `Sunset: ${timeCon(city.sys.sunset)}PM`
+  visibility.textContent = `Visibility: ${city.visibility}`
 }
 
 function padTo2Digits(num) {
@@ -79,10 +79,13 @@ function padTo2Digits(num) {
 
 function timeCon(unix) {
   const date = new Date(unix * 1000)
-  const hours = date.getHours()
+  let hours = date.getHours()
   const minutes = date.getMinutes()
   const seconds = date.getSeconds()
 
+  if(hours >= 12) {
+    hours = hours - 12
+  }
   const time = `${padTo2Digits(hours)}:${padTo2Digits(minutes)}`
 
   return time
@@ -147,8 +150,6 @@ function query() {
       weatherRequest(response)
       forecastRequest(response)
     })
-
-    // weatherRequest(city)
   })
 }
 
