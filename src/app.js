@@ -5,7 +5,9 @@ import '@fortawesome/fontawesome-free/js/regular'
 import '@fortawesome/fontawesome-free/js/brands'
 import './style.css'
 import Search from './search'
-import  { init, query, GeoCoding, updateTemp } from './api'
+import  { GeoCoding, updateTemp } from './api'
+import init from './init'
+import query from './api/querySearch'
 import Main from './dom'
 
 function btnListener() {
