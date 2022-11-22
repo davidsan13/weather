@@ -1,5 +1,6 @@
 import weatherRequest from './WeatherRequest'
 import forecastRequest from './forecastRequest'
+import GeoCoding from './GeoCoding'
 
 export default function query() {
   const searchBtn = document.getElementById('searchBtn')

@@ -49,14 +49,14 @@ function forecastUnique(array) {
 export default async function forecastRequest(city) {
   const key = '326cf3241277f33a6ab4623cf793e945'
   const activeUnit = document.querySelector('.active').dataset.key
-  let weatherRequestURL
+  let forecastRequestURL
   if (activeUnit === 'f') {
-    weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=imperial&appid=${key}`
+    forecastRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=imperial&appid=${key}`
   } else {
-    weatherRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${key}`
+    forecastRequestURL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${key}`
   }
-  console.log(weatherRequestURL)
-  const response = await fetch(weatherRequestURL)
+
+  const response = await fetch(forecastRequestURL)
   const data = await response.json()
   const forecastList = data.list
   const unique = forecastUnique(forecastList)
