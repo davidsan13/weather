@@ -1,38 +1,6 @@
 import Navi from './navi'
 import Footer from './footer'
 
-function windContainer() {
-  const container = document.createElement('div')
-  const windSpeed = document.createElement('h1')
-  const windDeg = document.createElement('h1')
-  const windGust = document.createElement('h1')
-
-  container.classList.add('windContainer')
-  windSpeed.classList.add('windSpeed')
-  windDeg.classList.add('windDeg')
-  windGust.classList.add('windGust')
-
-  container.appendChild(windSpeed)
-  // container.appendChild(windDeg)
-  // container.appendChild(windGust)
-
-  return container
-}
-
-function rainContainer() {
-  const container = document.createElement('div')
-  const rain1h = document.createElement('h1')
-  const rain3h = document.createElement('h1')
-
-  container.classList.add('rainContainer')
-  rain1h.classList.add('rain1h')
-  rain3h.classList.add('rain3h')
-
-  container.appendChild(rain1h)
-  container.appendChild(rain3h)
-
-  return container
-}
 
 function todayContainer() {
   const mainContainer = document.createElement('div')
@@ -153,7 +121,7 @@ export default function Main() {
 
   main.appendChild(todayContainer())
   main.appendChild(forecastContainer())
- 
+
   root.appendChild(Navi())
   root.appendChild(main)
   root.appendChild(Footer())
