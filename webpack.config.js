@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Testing',
+      title: 'Weather',
     }),
     // new HtmlWebpackInjectPlugin({
     //   externals: [
