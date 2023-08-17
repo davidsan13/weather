@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack serve --open",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "gh-pages": "^6.0.0",
     "html-webpack-inject-plugin": "^5.3.1",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.7.1",
